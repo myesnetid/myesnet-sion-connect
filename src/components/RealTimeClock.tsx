@@ -42,16 +42,16 @@ const RealTimeClock = () => {
   };
 
   return (
-    <div className="bg-black/30 backdrop-blur-md rounded-lg p-4 mx-auto max-w-md mt-4">
-      <div className="flex items-center justify-center gap-3 mb-2">
-        <Clock className="h-5 w-5 text-blue-400" />
-        <span className="text-blue-200 text-sm font-medium">Waktu Indonesia Barat (WIB)</span>
+    <div className="bg-black/30 backdrop-blur-md rounded-lg p-3 mx-auto max-w-sm">
+      <div className="flex items-center justify-center gap-2 mb-1">
+        <Clock className="h-4 w-4 text-blue-400" />
+        <span className="text-blue-200 text-xs font-medium">Waktu Indonesia Barat (WIB)</span>
       </div>
       <div className="text-center">
-        <div className="text-3xl font-bold text-white mb-1">
+        <div className="text-xl font-bold text-white mb-1">
           {formatTime(time)}
         </div>
-        <div className="text-blue-200 text-sm">
+        <div className="text-blue-200 text-xs">
           {formatDate(time)}
         </div>
       </div>
