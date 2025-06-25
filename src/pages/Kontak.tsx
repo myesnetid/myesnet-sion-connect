@@ -263,7 +263,7 @@ const Kontak = () => {
               
               <div className="pt-3 border-t border-white/10">
                 <p className="text-blue-200 text-sm">
-                  📞 Average response time: <span className="text-white font-medium">< 2 menit</span>
+                  📞 Average response time: <span className="text-white font-medium">{'< 2 menit'}</span>
                 </p>
                 <p className="text-blue-200 text-sm">
                   ⭐ Customer satisfaction: <span className="text-white font-medium">4.8/5.0</span>
