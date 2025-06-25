@@ -17,44 +17,29 @@ const RealTimeClock = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const formatDate = (date: Date) => {
-    const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-    const months = [
-      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-    ];
-
-    const dayName = days[date.getDay()];
-    const day = date.getDate();
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-    
-    return `${dayName}, ${day} ${month} ${year}`;
-  };
-
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString('id-ID', {
       hour: '2-digit',
       minute: '2-digit',
-      second: '2-digit',
       hour12: false
     });
   };
 
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString('id-ID', {
+      day: '2-digit',
+      month: '2-digit'
+    });
+  };
+
   return (
-    <div className="bg-black/30 backdrop-blur-md rounded-lg p-3 mx-auto max-w-sm">
-      <div className="flex items-center justify-center gap-2 mb-1">
-        <Clock className="h-4 w-4 text-blue-400" />
-        <span className="text-blue-200 text-xs font-medium">Waktu Indonesia Barat (WIB)</span>
+    <div className="bg-black/30 backdrop-blur-md rounded-lg p-2 text-center">
+      <div className="flex items-center justify-center gap-1 mb-1">
+        <Clock className="h-3 w-3 text-blue-400" />
+        <span className="text-blue-200 text-xs">WIB</span>
       </div>
-      <div className="text-center">
-        <div className="text-xl font-bold text-white mb-1">
-          {formatTime(time)}
-        </div>
-        <div className="text-blue-200 text-xs">
-          {formatDate(time)}
-        </div>
-      </div>
+      <div className="text-white text-sm font-bold">{formatTime(time)}</div>
+      <div className="text-blue-200 text-xs">{formatDate(time)}</div>
     </div>
   );
 };

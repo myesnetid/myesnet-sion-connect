@@ -14,28 +14,35 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState("voucher");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 relative overflow-hidden pb-16">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzIiBjeT0iMyIgcj0iMyIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
       
       <div className="relative z-10">
-        <div className="container mx-auto px-4 py-4">
-          {/* Header - More Compact */}
-          <div className="text-center mb-4">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <Wifi className="h-6 w-6 text-blue-400" />
-              <h1 className="text-2xl font-bold text-white">
-                Myesnet Login <span className="text-yellow-400">x</span> Sion Wifi
-              </h1>
-            </div>
-            <p className="text-blue-200 text-sm">Selamat datang di portal WiFi kami</p>
-            <div className="mt-2">
+        <div className="container mx-auto px-4 py-3">
+          {/* Header with Brand and Clock in one line */}
+          <div className="text-center mb-3">
+            <div className="flex items-center justify-between mb-2">
+              {/* Brand Name */}
+              <div className="flex items-center gap-2">
+                <Wifi className="h-5 w-5 text-blue-400" />
+                <h1 className="text-lg font-bold text-white">
+                  Myesnet Login <span className="text-yellow-400">x</span> Sion Wifi
+                </h1>
+              </div>
+              
+              {/* Compact Clock */}
               <RealTimeClock />
             </div>
+            
+            <p className="text-blue-200 text-sm">Selamat datang di portal WiFi kami</p>
           </div>
 
           {/* Single Column Layout */}
-          <div className="max-w-2xl mx-auto space-y-4">
+          <div className="max-w-2xl mx-auto space-y-3">
+            {/* Anti Gambling Banner - moved before login */}
+            <AntiBannerSlider />
+            
             {/* Login Panel */}
             <Card className="backdrop-blur-md bg-white/10 border-white/20">
               <CardHeader className="pb-3">
@@ -121,9 +128,6 @@ const Index = () => {
                 </Button>
               </CardContent>
             </Card>
-
-            {/* Anti Gambling Banner */}
-            <AntiBannerSlider />
           </div>
         </div>
 
