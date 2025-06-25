@@ -24,10 +24,20 @@ const LoginForm = ({ type }: LoginFormProps) => {
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    
+    // For voucher login, username and password should be the same
+    if (type === "voucher" && name === "username") {
+      setFormData({
+        username: value,
+        password: value
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,13 +77,13 @@ const LoginForm = ({ type }: LoginFormProps) => {
   return (
     <Card className="bg-white/5 border-white/20">
       <CardContent className="p-6">
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex items-center gap-3 mb-4">
           {type === "voucher" ? (
             <CreditCard className="h-6 w-6 text-blue-400" />
           ) : (
             <Users className="h-6 w-6 text-green-400" />
           )}
-          <h3 className="text-xl font-semibold text-white">
+          <h3 className="text-lg font-semibold text-white">
             {type === "voucher" ? "Login dengan Voucher" : "Login Member"}
           </h3>
         </div>
@@ -95,36 +105,38 @@ const LoginForm = ({ type }: LoginFormProps) => {
             />
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor={`${type}-password`} className="text-blue-200">
-              Password
-            </Label>
-            <div className="relative">
-              <Input
-                id={`${type}-password`}
-                name="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="Masukkan password"
-                value={formData.password}
-                onChange={handleInputChange}
-                required
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 pr-10"
-              />
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                className="absolute right-0 top-0 h-full px-3 text-gray-400 hover:text-white"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? (
-                  <EyeOff className="h-4 w-4" />
-                ) : (
-                  <Eye className="h-4 w-4" />
-                )}
-              </Button>
+          {type === "member" && (
+            <div className="space-y-2">
+              <Label htmlFor={`${type}-password`} className="text-blue-200">
+                Password
+              </Label>
+              <div className="relative">
+                <Input
+                  id={`${type}-password`}
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Masukkan password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  required
+                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 pr-10"
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-0 top-0 h-full px-3 text-gray-400 hover:text-white"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
             </div>
-          </div>
+          )}
 
           <Button
             type="submit"
@@ -145,7 +157,7 @@ const LoginForm = ({ type }: LoginFormProps) => {
         {type === "voucher" && (
           <div className="mt-4 p-3 bg-blue-500/20 rounded-lg border border-blue-500/30">
             <p className="text-blue-200 text-sm text-center">
-              💡 Kode voucher bisa dibeli di kasir atau melalui WhatsApp
+              💡 Masukkan kode voucher yang tertera pada struk pembelian
             </p>
           </div>
         )}

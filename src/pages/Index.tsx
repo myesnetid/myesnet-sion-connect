@@ -21,28 +21,25 @@ const Index = () => {
       <div className="relative z-10">
         <Navigation />
         
-        <div className="container mx-auto px-4 py-8">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Wifi className="h-10 w-10 text-blue-400" />
-              <h1 className="text-4xl font-bold text-white">
+        <div className="container mx-auto px-4 py-6">
+          {/* Header - More Compact */}
+          <div className="text-center mb-6">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <Wifi className="h-8 w-8 text-blue-400" />
+              <h1 className="text-3xl font-bold text-white">
                 Myesnet Login <span className="text-yellow-400">x</span> Sion Wifi
               </h1>
             </div>
-            <p className="text-blue-200 text-lg">Selamat datang di portal WiFi kami</p>
+            <p className="text-blue-200">Selamat datang di portal WiFi kami</p>
             <RealTimeClock />
           </div>
 
-          {/* Anti Gambling Banner */}
-          <AntiBannerSlider />
-
-          <div className="grid lg:grid-cols-3 gap-8 mt-8">
-            {/* Login Panel */}
-            <div className="lg:col-span-2">
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Login Panel - Now First */}
+            <div className="lg:col-span-2 order-1">
               <Card className="backdrop-blur-md bg-white/10 border-white/20">
-                <CardHeader>
-                  <CardTitle className="text-white text-center text-2xl">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-white text-center text-xl">
                     Portal Login WiFi
                   </CardTitle>
                   <CardDescription className="text-blue-200 text-center">
@@ -51,7 +48,7 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                    <TabsList className="grid w-full grid-cols-2 mb-6">
+                    <TabsList className="grid w-full grid-cols-2 mb-4">
                       <TabsTrigger value="voucher" className="flex items-center gap-2">
                         <CreditCard className="h-4 w-4" />
                         Login Voucher
@@ -74,32 +71,32 @@ const Index = () => {
               </Card>
             </div>
 
-            {/* Sidebar */}
-            <div className="space-y-6">
+            {/* Sidebar - Now Second */}
+            <div className="space-y-6 order-2">
               <VoucherPriceList />
               
               {/* Features */}
               <Card className="backdrop-blur-md bg-white/10 border-white/20">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-white flex items-center gap-2 text-lg">
                     <Shield className="h-5 w-5" />
                     Fitur Unggulan
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center gap-3 text-blue-200">
+                <CardContent className="space-y-2">
+                  <div className="flex items-center gap-3 text-blue-200 text-sm">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     Koneksi Internet Cepat & Stabil
                   </div>
-                  <div className="flex items-center gap-3 text-blue-200">
+                  <div className="flex items-center gap-3 text-blue-200 text-sm">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     Keamanan Data Terjamin
                   </div>
-                  <div className="flex items-center gap-3 text-blue-200">
+                  <div className="flex items-center gap-3 text-blue-200 text-sm">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     Support 24/7
                   </div>
-                  <div className="flex items-center gap-3 text-blue-200">
+                  <div className="flex items-center gap-3 text-blue-200 text-sm">
                     <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                     Harga Terjangkau
                   </div>
@@ -108,25 +105,30 @@ const Index = () => {
 
               {/* Contact Info */}
               <Card className="backdrop-blur-md bg-white/10 border-white/20">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-white flex items-center gap-2 text-lg">
                     <Phone className="h-5 w-5" />
                     Kontak
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <div className="text-blue-200">
+                  <div className="text-blue-200 text-sm">
                     <p className="font-semibold">Customer Service</p>
                     <p>WhatsApp: +62 812-3456-7890</p>
                     <p>Email: support@myesnet.com</p>
                   </div>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full text-sm">
                     <MessageSquare className="h-4 w-4 mr-2" />
                     Live Chat
                   </Button>
                 </CardContent>
               </Card>
             </div>
+          </div>
+
+          {/* Anti Gambling Banner - Moved to Bottom */}
+          <div className="mt-8">
+            <AntiBannerSlider />
           </div>
         </div>
       </div>
