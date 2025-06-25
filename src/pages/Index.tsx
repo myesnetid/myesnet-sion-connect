@@ -20,18 +20,16 @@ const Index = () => {
       
       <div className="relative z-10">
         <div className="container mx-auto px-4 py-3">
-          {/* Header with Brand and Clock in one line */}
+          {/* Header with Brand and Clock centered */}
           <div className="text-center mb-3">
-            <div className="flex items-center justify-between mb-2">
-              {/* Brand Name */}
+            {/* Brand Name and Clock in centered layout */}
+            <div className="flex items-center justify-center gap-4 mb-2">
               <div className="flex items-center gap-2">
                 <Wifi className="h-5 w-5 text-blue-400" />
                 <h1 className="text-lg font-bold text-white">
                   Myesnet Login <span className="text-yellow-400">x</span> Sion Wifi
                 </h1>
               </div>
-              
-              {/* Compact Clock */}
               <RealTimeClock />
             </div>
             
